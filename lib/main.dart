@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const ClockHome(),
       routes: {
-        newAlarmRoute: (context) => const ExampleAlarmEditScreen(),
+        newAlarmRoute: (context) => const EditAlarmView(),
       },
     );
   }

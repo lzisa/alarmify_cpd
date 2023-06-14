@@ -1,11 +1,15 @@
 import 'package:alarm/alarm.dart';
+import 'package:animated_widgets/widgets/rotation_animated.dart';
+import 'package:animated_widgets/widgets/shake_animated_widget.dart';
 import 'package:flutter/material.dart';
 
-class ExampleAlarmRingScreen extends StatelessWidget {
+class AlarmRingView extends StatelessWidget {
   final AlarmSettings alarmSettings;
 
-  const ExampleAlarmRingScreen({Key? key, required this.alarmSettings})
+  const AlarmRingView({Key? key, required this.alarmSettings})
       : super(key: key);
+
+  bool get _enabled => true;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +19,25 @@ class ExampleAlarmRingScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              "Your alarm (${alarmSettings.id}) is ringing...",
+              "WAKE UP",
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            const Text("🔔", style: TextStyle(fontSize: 50)),
+            ShakeAnimatedWidget(
+              enabled: this._enabled,
+              duration: Duration(milliseconds: 1500),
+              shakeAngle: Rotation.deg(z: 40),
+              curve: Curves.bounceIn,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.alarm_on,
+                    size: 120,
+                    color: Colors.amber,
+                  ),
+                ],
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

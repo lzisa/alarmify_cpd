@@ -2,17 +2,17 @@ import 'package:alarm/alarm.dart';
 import 'package:flutter/material.dart';
 import 'package:alarmify_cpd/services/spotify_getItems_service.dart';
 
-class ExampleAlarmEditScreen extends StatefulWidget {
+class EditAlarmView extends StatefulWidget {
   final AlarmSettings? alarmSettings;
 
-  const ExampleAlarmEditScreen({Key? key, this.alarmSettings})
+  const EditAlarmView({Key? key, this.alarmSettings})
       : super(key: key);
 
   @override
-  State<ExampleAlarmEditScreen> createState() => _ExampleAlarmEditScreenState();
+  State<EditAlarmView> createState() => _EditAlarmViewState();
 }
 
-class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
+class _EditAlarmViewState extends State<EditAlarmView> {
   late bool creating;
 
   late TimeOfDay selectedTime;
@@ -95,8 +95,8 @@ class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
       dateTime: dateTime,
       loopAudio: loopAudio,
       vibrate: vibrate,
-      notificationTitle: showNotification ? 'Alarm example' : null,
-      notificationBody: showNotification ? 'Your alarm ($id) is ringing' : null,
+      notificationTitle: showNotification ? 'Alarm' : null,
+      notificationBody: showNotification ? 'Good Morning' : null,
       assetAudioPath: assetAudio,
       stopOnNotificationOpen: false,
     );
@@ -140,25 +140,15 @@ class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Loop alarm audio',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Switch(
-                value: loopAudio,
-                onChanged: (value) => setState(() => loopAudio = value),
-              ),
-            ],
-          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Vibrate',
-                style: Theme.of(context).textTheme.titleMedium,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Switch(
                 value: vibrate,
@@ -171,7 +161,9 @@ class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
             children: [
               Text(
                 'Show notification',
-                style: Theme.of(context).textTheme.titleMedium,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Switch(
                 value: showNotification,
@@ -215,17 +207,12 @@ class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
                       child: Text('Nokia'),
                     ),
                     DropdownMenuItem<String>(
-                      value: 'assets/one_piece.mp3',
-                      child: Text('One Piece'),
+                      value: 'assets/sun.mp3',
+                      child: Text('Here comes the Sun - The Beatles'),
                     ),
                     DropdownMenuItem<String>(
-                      value: 'assets/star_wars.mp3',
-                      child: Text('Star Wars'),
-                    ),
-                    DropdownMenuItem<String>(
-                      value:
-                          'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                      child: Text('Wonderwall'),
+                      value: 'assets/Jaime_Cordoba_Drops_of_Jupiter.mp3',
+                      child: Text('Drops of Jupiter'),
                     ),
                   ],
                   onChanged: (value) => setState(() => assetAudio = value!),

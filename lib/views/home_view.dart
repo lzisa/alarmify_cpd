@@ -62,7 +62,7 @@ class _ClockHomeState extends State<ClockHome> {
         context,
         MaterialPageRoute(
           builder: (context) =>
-              ExampleAlarmRingScreen(alarmSettings: alarmSettings),
+              AlarmRingView(alarmSettings: alarmSettings),
         ));
     loadAlarms();
   }
@@ -77,7 +77,7 @@ class _ClockHomeState extends State<ClockHome> {
         builder: (context) {
           return FractionallySizedBox(
             heightFactor: 0.6,
-            child: ExampleAlarmEditScreen(alarmSettings: settings),
+            child: EditAlarmView(alarmSettings: settings),
           );
         });
 
@@ -101,7 +101,7 @@ class _ClockHomeState extends State<ClockHome> {
               elevation: 4,
               centerTitle: true,
             ),
-            body: ExampleAlarmEditScreen(
+            body: EditAlarmView(
                 alarmSettings: settings,),
 
           );
@@ -192,12 +192,7 @@ class _ClockHomeState extends State<ClockHome> {
               //onPressed: () => navigateToAlarmScreen(null),
               child: const Icon(Icons.alarm_add_rounded, size: 33),
             ),
-            ElevatedButton(
-              onPressed: () {
-                //SpotifyPlayer.playSong('spotify:track:4OSBTYWVwsQhGLF9NHvIbR');
-              },
-              child: Text('Play Song'),
-            ),
+
 
 
 
