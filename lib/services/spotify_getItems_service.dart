@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:spotify/spotify.dart';
 import 'package:http/http.dart' as http;
 
-const clientId = '1595f911487941ef98bba77a8e0e8a66';
-const clientSecret = '0dea55f05fbd4d4a83d440419f5f767f';
+const clientId = 'secret';
+const clientSecret = 'secret';
 
 class SpotifyService {
   final SpotifyApi _spotify;
